@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Modify Status</title>
+	<link rel = "stylesheet" href="css/admin.css">
+</head>
+<body>
+	<div class="contenedor">
+    <h2>Edicion de estado : 098789</h2>
+
+		<div class="left">
+			<div class="texto">
+				<p>Fecha de ingreso: <input type="text" name="fdate" value="12/01/2016"><p>
+				<p>Auto: <input type="text" name="auto" value="Jetta Volkswagen"><p>
+				<p>Año: <input type="text" name="year" value="2012"> <p>
+        <p>Siniestro: <input type="text" name="siniestro" value="098789"> <p>
+				<p>Placas: <input type="text" name="placas" value="VEW 1218"><p>
+        <p><button>Modificar información</button></p>
+
+        <div class="wrapper_foto">
+          <img class="photo" src="http://antenasanluis.mx/wp-content/uploads/2015/08/BLANCO-15.jpg"></img>
+          <p><button >Actualizar foto</button></p>
+        </div>
+
+			</div>
+		</div>
+		<div class="right">
+			<div class="texto">
+        <p style="margin-top:2em;">Área actual del vehículo: <p>
+        <select>
+          <option value="Mecanica">Mecanica</option>
+          <option value="Laminado">Laminado</option>
+          <option value="Pintura">Pintura</option>
+          <option value="Detallado">Detallado</option>
+          <option value="Terminado">Terminado</option>
+
+        </select>
+
+
+				<p>Fecha estimada de entrega: <input type="date" name="edate" value="19/01/2016"><p>
+
+				<p class="areas">Áreas pendientes: </p>
+				<div class = "pendientes">
+          <p style="margin-top: 2em;"></p>
+          <input type="checkbox" name="transporte" value="1" selected>Laminado
+          <br>
+          <input type="checkbox" name="transporte" value="2" >pintura
+          <br>
+          <input type="checkbox" name="transporte" value="3">detallado
+          <br>
+
+          <p class="info" style="margin-top:6.6em;">+ agregar areas</p>
+				</div>
+				<br>
+
+        <div class="wrapper_options">
+          <progress value="70" max="100" style="margin-top:1em;"></progress><span> 70%</span>
+          <br>
+          <button type="button" onclick="alert('Datos actualizados')" style="margin-top:2em;">Guardar cambios</button>
+        </div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
