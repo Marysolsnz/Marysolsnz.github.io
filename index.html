@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Msnz</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.eb8c584a31c939508cb0.css"></head>
+<body>
+    <script>
+        var context;
+        var x = 100;
+        var y = 150;
+        var dx = 5;
+        var dy = 5;
+
+        var index = 0;
+        var captionLength = 0;
+        var captionOptions = ["not just code.", "not just UX.", "ART."]
+
+        function init(){
+            context = myCanvas.getContext('2d');
+            context.canvas.width  = document.getElementsByTagName('body')[0].clientHeight;
+            context.canvas.height = document.getElementsByTagName('body')[0].clientHeight;
+            setInterval(draw, 20);
+            setInterval(cursorAnimation, 600);
+            $caption = $('#caption');
+            setTimeout('showCaptions()', 1000);
+        }
+
+        function draw(){
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            context.beginPath();
+            context.fillStyle="#cc2b5e";
+            // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
+            context.arc(x,y,25,0,Math.PI*2,true);
+            context.closePath();
+            context.fill();
+            // Boundary Logic
+            if( x < 30 || x > context.canvas.width - 30) dx = -dx;
+            if( y < 30 || y > context.canvas.height - 30) dy = -dy;
+            x += dx;
+            y += dy;
+        }
+
+        function cursorAnimation() {
+            $('#cursor').animate({
+                opacity: 0
+            }, 400).animate({
+                opacity: 1
+            }, 400);
+        }
+
+        function type() {
+            $caption.html(caption.substr(0, captionLength++));
+            if(captionLength < caption.length+1) {
+                setTimeout('type()', 70);
+            }
+        }
+
+        function erase() {
+            $caption.html(caption.substr(0, captionLength--));
+            if(captionLength >= 0) {
+                setTimeout('erase()', 50);
+            }
+        }
+
+        // this instigates the cycle of typing the captions
+        function showCaptions() {
+            caption = captionOptions[index];
+            type();
+            if (index < (captionOptions.length - 1)) {
+                index++
+                setTimeout('erase()', 4000);
+                setTimeout('showCaptions()', 6000)
+            } else {
+                setTimeout(function(){
+                    $('#cursor').remove()
+                }, 1500);
+            }
+        }
+    </script>
+  <app-root></app-root>
+<script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.7fb637d055581aa28d51.js"></script><script type="text/javascript" src="scripts.5d4daa63f5be535e9325.js"></script><script type="text/javascript" src="main.7d1a614f90a3eddf9e18.js"></script></body>
+</html>
